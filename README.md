@@ -1,0 +1,2 @@
+# 2024-AIMS-HPC
+2024 AIMS HPC workshop
