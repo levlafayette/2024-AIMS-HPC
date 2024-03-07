@@ -1,5 +1,13 @@
 Examples for GNU Parallel.
 
+# Syntax
+{} returns a full line read from the input source. 
+{/} removes everything up to and including the last forward slash. 
+{//} returns the directory name of input line. 
+{.} removes any filename extension.
+{/.} returns the basename of the input line without extension. It is a
+combination of {/} and {.}.
+
 # Performance test
 $ cd Parallel
 $ cat count.sh
