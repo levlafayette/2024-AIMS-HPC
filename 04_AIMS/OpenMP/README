@@ -1,16 +1,19 @@
 # Don't do this on the head node.
+
 # Many of these examples are from Lev Lafayette, Sequential and Parallel Programming with C and Fortran, VPAC, 2015-2016, ISBN 978-0-9943373-1-3,  https://github.com/VPAC/seqpar 
 
+# Launch an interactive job
+srun --partition=cpuq --nodes=1 --export=ALL --cpus-per-task=4 --pty /bin/bash
+
+
+# Load Modules
 module load gcc/10.2.0
-
 or
-
 module load intel/mpi/64
-
 
 # Export with the number of threads desired. Note that it is most efficient to have a number of cpus equal to the number of threads.
 
-$ export OMP_NUM_THREADS=8
+$ export OMP_NUM_THREADS=4
 
 # Compile with OpenMP directives. These examples use free-form for Fortran e.g., 
 $ gcc -fopenmp helloomp1.c -o helloompc
@@ -50,8 +53,12 @@ $ gfortran -fopenmp sharedhello.f90 -o sharedhelloompf
 $ ./sharedhelloompc
 $ ./sharedhelloompf
 
-# One of the most typical applications is the parallelisation of loops. This includes a worksharing construct, which distributes the execution of the parallel region among the thread team members. There is an implicit barrier at the end of a loop construct, unless a `nowait` clause has been stated. Loop iteration variables are private by default. 
-# Note that this example makes use of "parallel for" and "parallel do". In most cases they are mostly equivalent; parallel spawns a group of threads, while the for/do divides loop iterations between the spawned threads.
+# One of the most typical applications is the parallelisation of loops. This includes a worksharing construct, 
+# which distributes the execution of the parallel region among the thread team members. There is an implicit 
+# barrier at the end of a loop construct, unless a `nowait` clause has been stated. Loop iteration variables are 
+# private by default. Note that this example makes use of "parallel for" and "parallel do". In most cases they are 
+# mostly equivalent; parallel spawns a group of threads, while the for/do divides loop iterations between the 
+# spawned threads.
 
 $ gcc -fopenmp hello1millomp.c -o hello1millc
 $ gfortran -fopenmp hello1millomp.f90 -o hello1millf

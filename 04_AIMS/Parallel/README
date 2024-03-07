@@ -5,8 +5,7 @@ Examples for GNU Parallel.
 {/} removes everything up to and including the last forward slash. 
 {//} returns the directory name of input line. 
 {.} removes any filename extension.
-{/.} returns the basename of the input line without extension. It is a
-combination of {/} and {.}.
+{/.} returns the basename of the input line without extension. It is a combination of {/} and {.}.
 
 # Performance test
 $ cd Parallel

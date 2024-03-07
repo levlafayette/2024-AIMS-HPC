@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 
 module purge
 module load foss/2022a 
@@ -31,7 +31,7 @@ mpicc mpi-gametheory.c -o mpi-gametheory
 sleep 5
 sbatch 2022mpi-gametheory.slurm
 
-# You'll need compile with the math library for this one!
+ You'll need compile with the math library for this one!
 
 mpicc mpi-particle.c -lm -o mpi-particle
 sleep 5

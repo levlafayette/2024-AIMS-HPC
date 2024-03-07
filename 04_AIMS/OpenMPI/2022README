@@ -1,4 +1,4 @@
-# A number of these examples come from Lev Lafayette, Sequential and Parallel Programming with C and Fortran, VPAC, 2015-2016, ISBN 978-0-9943373-1-3
+ A number of these examples come from Lev Lafayette, Sequential and Parallel Programming with C and Fortran, VPAC, 2015-2016, ISBN 978-0-9943373-1-3
 
 module purge
 module load openmpi/3.1.4
@@ -30,7 +30,7 @@ sbatch 2022mpi-scatterv.slurm
 mpicc mpi-gametheory.c -o mpi-gametheory
 sbatch 2022mpi-gametheory.slurm
 
-# You'll need compile with the math library for this one!
+ You'll need compile with the math library for this one!
 
 mpicc mpi-particle.c -lm -o mpi-particle
 sbatch 2022mpi-gametheory.slurm
