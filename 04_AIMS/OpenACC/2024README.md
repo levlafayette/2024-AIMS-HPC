@@ -14,14 +14,13 @@ main()
 
 Examples exercises and solutions from Pawsey Supercomputing Centre.
 
-1. Start an interactive job. Use a project ID that has gpgpu access and permissions.
+1. Start an interactive job, load the module.
 
 e.g.,
-$ sinteractive --time=04:00:00 --partition=gpgputest --qos=hpcadmin
 
+$ srun --partition=gpuq --nodes=1 --ntasks-per-node=1 --export=ALL --pty /bin/bash
 
-$ cd ~ ; cp -r /usr/local/common/OpenACC .
-$ module load NVHPC/22.11-CUDA-11.7.0
+$ module load nvhpc/22.3
 
 2. The Importance of Profiling
 
@@ -36,7 +35,7 @@ Check profile information.
 
 Examples here from Pawsey Supercomputing Centre.
 
-$ cd ~/OpenACC/Exercise/exe1
+$ cd Exercise/exe1
 $ make
 $ time ./heat_eq_serial 
 
@@ -56,7 +55,7 @@ sys	0m0.008s
 code region ..
 }
 
-cd ~/OpenACC/Solution/exe2
+cd Solution/exe2
 make
 
 Note the compiler feedback! e.g.,
@@ -97,6 +96,6 @@ nvprof supports several options. For example:
 
 6. Add Data construct pragmas, run the code again
 
-cd ~/OpenACC/Solution/exe3
+cd Solution/exe3
 make
 $ time nvprof ./heat_eq_acc_v3
